@@ -5,11 +5,13 @@ const app = express()
 
 app.use(bodyParser.json())
 
-app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.urlencoded({
+    extended: true
+}))
 
 app.use(cors())
 
-app.get("/test",( req,res) =>{
+app.get("/test", (req, res) => {
 
     let response = {
         message: "Ini end-point pertama ku",
@@ -23,7 +25,7 @@ app.get("/test",( req,res) =>{
 
 })
 
-app.get("/profil/:name/:age", (req,res) => {
+app.get("/profil/:name/:age", (req, res) => {
 
     let name = req.params.name // mengambil nilai pada parameter name
     let age = req.params.age // mengambil nilai pada parameter age
@@ -37,7 +39,7 @@ app.get("/profil/:name/:age", (req,res) => {
 
 })
 
-app.post("/bujur_sangkar", (req,res) => {
+app.post("/bujur_sangkar", (req, res) => {
     let panjang = Number(req.body.panjang) // mengambil nilai panjang dari body
     let lebar = Number(req.body.lebar) // mengamil nilai lebar dari body
 
